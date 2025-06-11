@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Scissors, Stethoscope, ShoppingBag, Users, Calendar, CreditCard } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ProductsSection = () => {
   const products = [
@@ -125,9 +126,17 @@ const ProductsSection = () => {
                 </div>
               </CardContent>
 
-              <CardFooter>
+              <CardFooter className="flex gap-2">
+                <Link to={`/sistema/${product.id}`} className="flex-1">
+                  <Button 
+                    variant="outline"
+                    className="w-full group-hover:scale-105 transition-transform"
+                  >
+                    Ver Detalhes
+                  </Button>
+                </Link>
                 <Button 
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 group-hover:scale-105 transition-transform"
+                  className="flex-1 bg-accent text-accent-foreground hover:bg-accent/90 group-hover:scale-105 transition-transform"
                 >
                   Quero esse Sistema
                 </Button>
