@@ -27,9 +27,9 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#sistemas" className="text-foreground hover:text-accent transition-colors">
+            <Link to="/sistemas" className="text-foreground hover:text-accent transition-colors">
               Sistemas
-            </a>
+            </Link>
             <a href="#como-funciona" className="text-foreground hover:text-accent transition-colors">
               Como Funciona
             </a>
@@ -45,10 +45,14 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost">Entrar</Button>
-            <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
-              Começar Agora
-            </Button>
+            <Link to="/login">
+              <Button variant="ghost">Entrar</Button>
+            </Link>
+            <Link to="/sistemas">
+              <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
+                Ver Sistemas
+              </Button>
+            </Link>
           </div>
 
           <button
@@ -62,9 +66,9 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
-              <a href="#sistemas" className="text-foreground hover:text-accent transition-colors">
+              <Link to="/sistemas" className="text-foreground hover:text-accent transition-colors">
                 Sistemas
-              </a>
+              </Link>
               <a href="#como-funciona" className="text-foreground hover:text-accent transition-colors">
                 Como Funciona
               </a>
@@ -78,10 +82,14 @@ const Header = () => {
                 Contato
               </Link>
               <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="ghost">Entrar</Button>
-                <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
-                  Começar Agora
-                </Button>
+                <Link to="/login">
+                  <Button variant="ghost" className="w-full">Entrar</Button>
+                </Link>
+                <Link to="/sistemas">
+                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                    Ver Sistemas
+                  </Button>
+                </Link>
               </div>
             </nav>
           </div>

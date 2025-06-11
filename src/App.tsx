@@ -8,6 +8,12 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import SystemDetails from "./pages/SystemDetails";
+import Systems from "./pages/Systems";
+import Demo from "./pages/Demo";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Purchase from "./pages/Purchase";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,9 +26,15 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/sistemas" element={<Systems />} />
+          <Route path="/sistema/:id" element={<SystemDetails />} />
+          <Route path="/demo/:id" element={<Demo />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/contato" element={<Contact />} />
-          <Route path="/sistema/:id" element={<SystemDetails />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registro" element={<Register />} />
+          <Route path="/comprar/:id" element={<Purchase />} />
+          <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
