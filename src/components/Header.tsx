@@ -1,11 +1,17 @@
-
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, isAuthenticated, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 fixed top-0 z-50 w-full border-b border-border h-16">
@@ -42,20 +48,40 @@ const Header = () => {
             <Link to="/contato" className="text-foreground hover:text-accent transition-colors">
               Contato
             </Link>
-            <Link to="/dashboard" className="text-foreground hover:text-accent transition-colors">
-              Dashboard
-            </Link>
+            {isAuthenticated && user?.type === 'admin' && (
+              <Link to="/dashboard" className="text-foreground hover:text-accent transition-colors">
+                Dashboard Admin
+              </Link>
+            )}
+            {isAuthenticated && user?.type === 'client' && (
+              <Link to="/client-dashboard" className="text-foreground hover:text-accent transition-colors">
+                Meu Painel
+              </Link>
+            )}
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/login">
-              <Button variant="ghost">Entrar</Button>
-            </Link>
-            <Link to="/sistemas">
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
-                Ver Sistemas
-              </Button>
-            </Link>
+            {isAuthenticated ? (
+              <div className="flex items-center space-x-4">
+                <span className="text-sm text-muted-foreground">
+                  Olá, {user?.name}
+                </span>
+                <Button variant="ghost" onClick={handleLogout}>
+                  Sair
+                </Button>
+              </div>
+            ) : (
+              <>
+                <Link to="/login">
+                  <Button variant="ghost">Entrar</Button>
+                </Link>
+                <Link to="/sistemas">
+                  <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
+                    Ver Sistemas
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           <button
@@ -84,18 +110,38 @@ const Header = () => {
               <Link to="/contato" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Contato
               </Link>
-              <Link to="/dashboard" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
-                Dashboard
-              </Link>
+              {isAuthenticated && user?.type === 'admin' && (
+                <Link to="/dashboard" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
+                  Dashboard Admin
+                </Link>
+              )}
+              {isAuthenticated && user?.type === 'client' && (
+                <Link to="/client-dashboard" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
+                  Meu Painel
+                </Link>
+              )}
               <div className="flex flex-col space-y-2 pt-4">
-                <Link to="/login" onClick={() => setIsMenuOpen(false)}>
-                  <Button variant="ghost" className="w-full">Entrar</Button>
-                </Link>
-                <Link to="/sistemas" onClick={() => setIsMenuOpen(false)}>
-                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                    Ver Sistemas
-                  </Button>
-                </Link>
+                {isAuthenticated ? (
+                  <>
+                    <span className="text-sm text-muted-foreground px-4">
+                      Olá, {user?.name}
+                    </span>
+                    <Button variant="ghost" className="w-full" onClick={handleLogout}>
+                      Sair
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                      <Button variant="ghost" className="w-full">Entrar</Button>
+                    </Link>
+                    <Link to="/sistemas" onClick={() => setIsMenuOpen(false)}>
+                      <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                        Ver Sistemas
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </div>
             </nav>
           </div>

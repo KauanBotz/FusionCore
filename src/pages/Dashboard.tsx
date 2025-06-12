@@ -18,9 +18,18 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart as RechartsPieChart, Cell, Pie } from "recharts";
+import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [timeRange, setTimeRange] = useState("30");
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   // Dados mockados para demonstração
   const salesData = [
@@ -64,7 +73,7 @@ const Dashboard = () => {
             <div>
               <h1 className="text-3xl font-bold text-foreground">Dashboard Empresarial</h1>
               <p className="text-muted-foreground mt-2">
-                Visão geral completa do seu negócio
+                Visão geral completa do seu negócio - Administrador: {user?.name}
               </p>
             </div>
             <div className="flex items-center gap-4 mt-4 md:mt-0">
@@ -81,6 +90,10 @@ const Dashboard = () => {
               <Button variant="outline">
                 <Download className="h-4 w-4 mr-2" />
                 Exportar
+              </Button>
+              <Button variant="outline" onClick={handleLogout}>
+                <Users className="h-4 w-4 mr-2" />
+                Sair
               </Button>
             </div>
           </div>

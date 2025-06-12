@@ -4,24 +4,55 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, Mail, Lock } from "lucide-react";
 import Header from "@/components/Header";
+import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from "@/hooks/use-toast";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate login process
-    setTimeout(() => {
+    try {
+      const success = await login(email, password);
+      
+      if (success) {
+        toast({
+          title: "Login realizado com sucesso!",
+          description: "Redirecionando para o dashboard...",
+        });
+        
+        // Redirecionar baseado no tipo de usuário
+        if (email === "admin@admin.com") {
+          navigate("/dashboard");
+        } else {
+          navigate("/client-dashboard");
+        }
+      } else {
+        toast({
+          title: "Erro ao fazer login",
+          description: "Email ou senha incorretos.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Erro ao fazer login",
+        description: "Tente novamente mais tarde.",
+        variant: "destructive",
+      });
+    } finally {
       setIsLoading(false);
-      // Redirect to dashboard or home
-    }, 1000);
+    }
   };
 
   return (
@@ -45,6 +76,13 @@ const Login = () => {
               <p className="text-muted-foreground">
                 Digite suas credenciais para acessar sua conta
               </p>
+              <div className="mt-4 p-4 bg-muted/50 rounded-lg text-sm">
+                <p className="font-medium mb-2">Contas de teste:</p>
+                <div className="space-y-1 text-left">
+                  <p><strong>Admin:</strong> admin@admin.com / 123</p>
+                  <p><strong>Cliente:</strong> empresa@empresa.com / 123</p>
+                </div>
+              </div>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
