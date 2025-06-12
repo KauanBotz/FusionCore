@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Scissors, Stethoscope, ShoppingBag, Users, Calendar, CreditCard, Search } from "lucide-react";
+import { Scissors, CreditCard, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -20,63 +20,19 @@ const Systems = () => {
       description: "Completo sistema de agendamento, controle de clientes, vendas e estoque para barbearias e salões.",
       image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=400&h=300&fit=crop",
       icon: <Scissors className="h-8 w-8 text-accent" />,
-      features: ["Agendamento Online", "Controle de Estoque", "Relatórios", "App Mobile"],
+      features: ["Agendamento Online", "Controle de Estoque", "Relatórios", "App Web"],
       badge: "Mais Popular",
       price: "R$ 97/mês",
       category: "beleza"
     },
     {
       id: 2,
-      name: "Sistema para Clínica",
-      description: "Gestão completa de pacientes, prontuários eletrônicos, agendamentos e faturamento médico.",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop",
-      icon: <Stethoscope className="h-8 w-8 text-accent" />,
-      features: ["Prontuário Eletrônico", "Agenda Médica", "Faturamento", "Telemedicina"],
-      badge: "Novo",
-      price: "R$ 147/mês",
-      category: "saude"
-    },
-    {
-      id: 3,
-      name: "Sistema para Loja",
-      description: "E-commerce completo com controle de estoque, vendas online e offline, relatórios detalhados.",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop",
-      icon: <ShoppingBag className="h-8 w-8 text-accent" />,
-      features: ["E-commerce", "PDV", "Estoque", "Marketplace"],
-      badge: "",
-      price: "R$ 127/mês",
-      category: "varejo"
-    },
-    {
-      id: 4,
-      name: "Sistema para Academia",
-      description: "Gestão de alunos, planos, pagamentos, controle de acesso e aplicativo para treinos.",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
-      icon: <Users className="h-8 w-8 text-accent" />,
-      features: ["Controle de Acesso", "Planos", "App Treinos", "Biometria"],
-      badge: "",
-      price: "R$ 117/mês",
-      category: "fitness"
-    },
-    {
-      id: 5,
-      name: "Sistema para Restaurante",
-      description: "Gestão completa de pedidos, delivery, cardápio digital, controle de mesas e cozinha.",
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop",
-      icon: <Calendar className="h-8 w-8 text-accent" />,
-      features: ["Cardápio Digital", "Delivery", "Mesa Digital", "Cozinha"],
-      badge: "",
-      price: "R$ 137/mês",
-      category: "alimentacao"
-    },
-    {
-      id: 6,
       name: "Sistema Financeiro",
       description: "Controle financeiro completo para empresas, fluxo de caixa, relatórios e integração bancária.",
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
       icon: <CreditCard className="h-8 w-8 text-accent" />,
       features: ["Fluxo de Caixa", "Relatórios", "Integração Bancária", "DRE"],
-      badge: "",
+      badge: "Novo",
       price: "R$ 87/mês",
       category: "financeiro"
     }
@@ -85,10 +41,6 @@ const Systems = () => {
   const categories = [
     { id: "todos", name: "Todos os Sistemas" },
     { id: "beleza", name: "Beleza & Estética" },
-    { id: "saude", name: "Saúde" },
-    { id: "varejo", name: "Varejo" },
-    { id: "fitness", name: "Fitness" },
-    { id: "alimentacao", name: "Alimentação" },
     { id: "financeiro", name: "Financeiro" }
   ];
 
@@ -149,7 +101,7 @@ const Systems = () => {
         {/* Systems Grid */}
         <section className="py-8">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {filteredSystems.map((system) => (
                 <Card 
                   key={system.id} 

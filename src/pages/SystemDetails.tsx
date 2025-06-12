@@ -1,7 +1,7 @@
 
 import { useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Check, Star, Users, Clock, Shield } from "lucide-react";
 import Header from "@/components/Header";
@@ -16,7 +16,7 @@ const SystemDetails = () => {
       name: "Sistema para Barbearia",
       price: "R$ 97/mês",
       image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&h=600&fit=crop",
-      description: "Sistema completo de gestão para barbearias e salões de beleza. Controle total do seu negócio em uma única plataforma.",
+      description: "Sistema completo de gestão para barbearias e salões de beleza. Controle total do seu negócio em uma única plataforma web.",
       features: [
         "Agendamento online com confirmação automática",
         "Gestão completa de clientes e histórico",
@@ -24,7 +24,7 @@ const SystemDetails = () => {
         "Relatórios financeiros detalhados",
         "Sistema de fidelidade para clientes",
         "Integração com WhatsApp",
-        "App mobile para clientes",
+        "Aplicação web responsiva",
         "Painel administrativo completo"
       ],
       benefits: [
@@ -38,6 +38,35 @@ const SystemDetails = () => {
           name: "João Silva",
           business: "Barbearia Moderna",
           text: "Revolucionou meu negócio! Agora tenho controle total e meus clientes adoram o agendamento online."
+        }
+      ]
+    },
+    "2": {
+      name: "Sistema Financeiro",
+      price: "R$ 87/mês",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop",
+      description: "Sistema completo de controle financeiro empresarial. Gerencie todas as finanças da sua empresa em uma única plataforma web.",
+      features: [
+        "Fluxo de caixa em tempo real",
+        "Relatórios financeiros avançados",
+        "Integração bancária automática",
+        "Demonstrativo de Resultado (DRE)",
+        "Controle de contas a pagar e receber",
+        "Dashboard executivo",
+        "Aplicação web segura",
+        "Backup automático dos dados"
+      ],
+      benefits: [
+        "Controle total das finanças",
+        "Economia de 50% no tempo de gestão",
+        "Relatórios automáticos",
+        "Segurança de dados garantida"
+      ],
+      testimonials: [
+        {
+          name: "Maria Santos",
+          business: "Empresa ABC",
+          text: "Transformou nossa gestão financeira! Agora temos controle total e relatórios automáticos."
         }
       ]
     }
@@ -84,7 +113,7 @@ const SystemDetails = () => {
                 
                 <div className="flex items-center gap-4 mb-8">
                   <div className="text-3xl font-bold text-accent">{system.price}</div>
-                  <Badge className="bg-accent text-accent-foreground">Mais Popular</Badge>
+                  <Badge className="bg-accent text-accent-foreground">Aplicação Web</Badge>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -164,7 +193,7 @@ const SystemDetails = () => {
               <div>
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <Users className="h-6 w-6 text-accent" />
-                  <div className="text-4xl font-bold text-accent">500+</div>
+                  <div className="text-4xl font-bold text-accent">200+</div>
                 </div>
                 <div className="text-primary-foreground/80">Empresas Atendidas</div>
               </div>

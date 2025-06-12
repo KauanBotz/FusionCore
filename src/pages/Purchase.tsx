@@ -27,7 +27,22 @@ const Purchase = () => {
         "Gestão de clientes",
         "Controle de estoque",
         "Relatórios financeiros",
-        "App mobile",
+        "Aplicação web",
+        "Suporte 24/7"
+      ]
+    },
+    "2": {
+      name: "Sistema Financeiro",
+      description: "Sistema completo de controle financeiro",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
+      monthlyPrice: 87,
+      yearlyPrice: 870,
+      features: [
+        "Fluxo de caixa",
+        "Relatórios avançados",
+        "Integração bancária",
+        "DRE automático",
+        "Aplicação web",
         "Suporte 24/7"
       ]
     }
@@ -81,6 +96,7 @@ const Purchase = () => {
                       <div>
                         <h3 className="text-lg font-semibold">{system.name}</h3>
                         <p className="text-muted-foreground">{system.description}</p>
+                        <Badge variant="secondary" className="mt-1">Aplicação Web</Badge>
                       </div>
                     </div>
 
