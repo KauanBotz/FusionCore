@@ -72,13 +72,6 @@ const Login = () => {
               <p className="text-muted-foreground">
                 Digite suas credenciais para acessar sua conta
               </p>
-              <div className="mt-4 p-4 bg-muted/50 rounded-lg text-sm">
-                <p className="font-medium mb-2">Contas de teste:</p>
-                <div className="space-y-1 text-left">
-                  <p><strong>Admin:</strong> admin@admin.com / 123</p>
-                  <p><strong>Cliente:</strong> empresa@empresa.com / 123</p>
-                </div>
-              </div>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">

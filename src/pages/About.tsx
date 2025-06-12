@@ -4,8 +4,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Award, Target, Users, Zap } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
+  const params = useParams();
+  const link = Link;
   const values = [
     {
       icon: <Target className="h-8 w-8 text-accent" />,
@@ -30,24 +34,14 @@ const About = () => {
   ];
 
   const team = [
+
     {
-      name: "Carlos Silva",
-      role: "CEO & Fundador",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-      description: "15 anos de experiência em desenvolvimento de software empresarial."
+      name: "Kauan",
+      role: "Co-Founder",
+      image: "https://imgur.com/a/i7108DU",
+      description: "Criador do FusionCore e especialista em desenvolvimento de software empresarial."
     },
-    {
-      name: "Ana Costa",
-      role: "CTO",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face",
-      description: "Especialista em arquitetura de sistemas e tecnologias cloud."
-    },
-    {
-      name: "Pedro Santos",
-      role: "Head de Produto",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-      description: "Expert em UX/UI e experiência do usuário em sistemas empresariais."
-    }
+
   ];
 
   return (
@@ -137,42 +131,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Team Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                Nossa Equipe
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Conheça as pessoas por trás dos sistemas que transformam empresas.
-              </p>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {team.map((member, index) => (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                  <CardContent className="pt-8 pb-8">
-                    <img 
-                      src={member.image}
-                      alt={member.name}
-                      className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-                    />
-                    <h3 className="text-xl font-semibold text-foreground mb-2">
-                      {member.name}
-                    </h3>
-                    <p className="text-accent font-medium mb-4">
-                      {member.role}
-                    </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {member.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* Stats Section */}
         <section className="py-20 bg-primary text-primary-foreground">
@@ -213,9 +172,14 @@ const About = () => {
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
               Entre em contato conosco e descubra como podemos ajudar sua empresa a crescer.
             </p>
-            <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90">
-              Falar Conosco
-            </Button>
+            <Button
+            size="lg"
+            variant="secondary"
+            className="bg-background text-foreground hover:bg-background/90"
+            onClick={() => navigate('/contato')}
+          >
+            Falar Conosco
+          </Button>
           </div>
         </section>
       </main>

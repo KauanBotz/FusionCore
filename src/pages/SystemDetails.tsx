@@ -6,9 +6,11 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Check, Star, Users, Clock, Shield } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const SystemDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   // Dados dos sistemas (em uma aplicação real, viria de uma API)
   const systems = {
@@ -43,7 +45,7 @@ const SystemDetails = () => {
     },
     "2": {
       name: "Sistema Financeiro",
-      price: "R$ 87/mês",
+      price: "R$ 97/mês",
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop",
       description: "Sistema completo de controle financeiro empresarial. Gerencie todas as finanças da sua empresa em uma única plataforma web.",
       features: [
@@ -117,10 +119,10 @@ const SystemDetails = () => {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                  <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" onClick={() => navigate(`/comprar/${id}`)}>
                     Quero Este Sistema
                   </Button>
-                  <Button variant="outline" size="lg">
+                  <Button variant="outline" size="lg" onClick={() => navigate(`/trial`)}>
                     Agendar Demo
                   </Button>
                 </div>

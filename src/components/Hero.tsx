@@ -26,7 +26,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl sm:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-            Sistemas completos e personalizados para barbearias, clínicas, lojas e muito mais. 
+            Sistemas completos e personalizados para barbearias e financeiros. 
             Implementação em 24h com suporte total.
           </p>
           

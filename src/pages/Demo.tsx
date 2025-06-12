@@ -7,8 +7,10 @@ import { ArrowLeft, Play, Monitor, Smartphone, Tablet } from "lucide-react";
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Demo = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [selectedDevice, setSelectedDevice] = useState("desktop");
 
@@ -23,8 +25,20 @@ const Demo = () => {
         "Controle de estoque automatizado",
         "Relatórios financeiros detalhados"
       ]
+    },
+    "2": {
+      name: "Sistema para Financeiro",
+      description: "Veja como funciona o sistema completo de gestão para empresas",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      features: [
+        "Fluxo de caixa",
+        "Relatórios financeiros detalhados",
+        "Controle de estoque automatizado",
+        "Relatórios financeiros detalhados"
+      ]
     }
   };
+
 
   const demo = demoData[id as keyof typeof demoData];
 
@@ -151,7 +165,7 @@ const Demo = () => {
                         Implemente este sistema no seu negócio hoje mesmo!
                       </p>
                       <div className="flex flex-col gap-3">
-                        <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
+                        <Button className="bg-accent text-accent-foreground hover:bg-accent/90" onClick={() => navigate(`/comprar/${id}`)}>
                           Quero este Sistema
                         </Button>
                         <Button variant="outline">

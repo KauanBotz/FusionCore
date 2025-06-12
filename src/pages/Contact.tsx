@@ -55,8 +55,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Telefone</h3>
-                      <p className="text-muted-foreground">(11) 99999-9999</p>
-                      <p className="text-muted-foreground">(11) 3333-4444</p>
+                      <p className="text-muted-foreground">(31) 98288-6064</p>
                     </div>
                   </div>
                   
@@ -76,11 +75,9 @@ const Contact = () => {
                       <MapPin className="h-6 w-6 text-accent" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">Endereço</h3>
+                      <h3 className="font-semibold text-foreground mb-1">Localização</h3>
                       <p className="text-muted-foreground">
-                        Av. Paulista, 1000 - Sala 1501<br />
-                        São Paulo, SP - 01310-100<br />
-                        Brasil
+                        Belo Horizonte, MG
                       </p>
                     </div>
                   </div>
@@ -186,26 +183,6 @@ const Contact = () => {
                   </form>
                 </CardContent>
               </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Map Section */}
-        <section className="py-20 bg-muted/50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-6">
-                Nossa Localização
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Estamos localizados no coração de São Paulo, na Av. Paulista.
-              </p>
-            </div>
-            
-            <div className="bg-muted rounded-lg h-96 flex items-center justify-center">
-              <p className="text-muted-foreground">
-                [Mapa seria integrado aqui - Google Maps ou similar]
-              </p>
             </div>
           </div>
         </section>

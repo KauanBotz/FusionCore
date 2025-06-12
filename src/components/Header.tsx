@@ -21,12 +21,12 @@ const Header = () => {
           <div className="flex items-center">
             <Link to="/">
               <img 
-                src="/lovable-uploads/d90d82aa-c3d0-42d6-8603-a1869baa91d4.png" 
+                src="/lovable-uploads/Icon-Back.png" 
                 alt="FusionCore" 
                 className="h-8 w-auto dark:hidden"
               />
               <img 
-                src="/lovable-uploads/4090844a-f7f9-4521-9a19-db12d82c6589.png" 
+                src="/lovable-uploads/Icon-Back.png" 
                 alt="FusionCore" 
                 className="h-8 w-auto hidden dark:block"
               />

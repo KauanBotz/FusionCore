@@ -26,9 +26,7 @@ const Trial = () => {
 
   const systems = [
     { id: "barbearia", name: "Sistema para Barbearia" },
-    { id: "clinica", name: "Sistema para Clínica" },
-    { id: "loja", name: "Sistema para Loja" },
-    { id: "outros", name: "Outros" }
+    { id: "financeiro", name: "Sistema Financeiro" },
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {

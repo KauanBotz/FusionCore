@@ -33,7 +33,7 @@ const Systems = () => {
       icon: <CreditCard className="h-8 w-8 text-accent" />,
       features: ["Fluxo de Caixa", "Relatórios", "Integração Bancária", "DRE"],
       badge: "Novo",
-      price: "R$ 87/mês",
+      price: "R$ 97/mês",
       category: "financeiro"
     }
   ];
