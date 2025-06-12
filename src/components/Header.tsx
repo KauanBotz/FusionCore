@@ -42,6 +42,9 @@ const Header = () => {
             <Link to="/contato" className="text-foreground hover:text-accent transition-colors">
               Contato
             </Link>
+            <Link to="/dashboard" className="text-foreground hover:text-accent transition-colors">
+              Dashboard
+            </Link>
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -80,6 +83,9 @@ const Header = () => {
               </Link>
               <Link to="/contato" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Contato
+              </Link>
+              <Link to="/dashboard" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
+                Dashboard
               </Link>
               <div className="flex flex-col space-y-2 pt-4">
                 <Link to="/login" onClick={() => setIsMenuOpen(false)}>
