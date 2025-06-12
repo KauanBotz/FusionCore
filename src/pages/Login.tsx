@@ -28,7 +28,7 @@ const Login = () => {
     <div className="min-h-screen">
       <Header />
       
-      <main className="pt-16 flex items-center justify-center min-h-screen bg-gradient-to-br from-background via-background to-muted">
+      <main className="pt-20 pb-8 flex items-center justify-center min-h-screen bg-gradient-to-br from-background via-background to-muted">
         <div className="w-full max-w-md mx-auto px-4">
           <div className="text-center mb-8">
             <Link to="/">

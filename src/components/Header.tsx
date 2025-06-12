@@ -8,9 +8,9 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+    <header className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 fixed top-0 z-50 w-full border-b border-border h-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex h-full items-center justify-between">
           <div className="flex items-center">
             <Link to="/">
               <img 
@@ -30,10 +30,10 @@ const Header = () => {
             <Link to="/sistemas" className="text-foreground hover:text-accent transition-colors">
               Sistemas
             </Link>
-            <a href="#como-funciona" className="text-foreground hover:text-accent transition-colors">
+            <a href="/#como-funciona" className="text-foreground hover:text-accent transition-colors">
               Como Funciona
             </a>
-            <a href="#precos" className="text-foreground hover:text-accent transition-colors">
+            <a href="/#precos" className="text-foreground hover:text-accent transition-colors">
               Preços
             </a>
             <Link to="/sobre" className="text-foreground hover:text-accent transition-colors">
@@ -64,28 +64,28 @@ const Header = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            <nav className="flex flex-col space-y-4">
-              <Link to="/sistemas" className="text-foreground hover:text-accent transition-colors">
+          <div className="md:hidden absolute top-16 left-0 right-0 bg-background border-b border-border py-4">
+            <nav className="flex flex-col space-y-4 px-4">
+              <Link to="/sistemas" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Sistemas
               </Link>
-              <a href="#como-funciona" className="text-foreground hover:text-accent transition-colors">
+              <a href="/#como-funciona" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Como Funciona
               </a>
-              <a href="#precos" className="text-foreground hover:text-accent transition-colors">
+              <a href="/#precos" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Preços
               </a>
-              <Link to="/sobre" className="text-foreground hover:text-accent transition-colors">
+              <Link to="/sobre" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Sobre
               </Link>
-              <Link to="/contato" className="text-foreground hover:text-accent transition-colors">
+              <Link to="/contato" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Contato
               </Link>
               <div className="flex flex-col space-y-2 pt-4">
-                <Link to="/login">
+                <Link to="/login" onClick={() => setIsMenuOpen(false)}>
                   <Button variant="ghost" className="w-full">Entrar</Button>
                 </Link>
-                <Link to="/sistemas">
+                <Link to="/sistemas" onClick={() => setIsMenuOpen(false)}>
                   <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
                     Ver Sistemas
                   </Button>

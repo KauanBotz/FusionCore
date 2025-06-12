@@ -135,11 +135,13 @@ const ProductsSection = () => {
                     Ver Detalhes
                   </Button>
                 </Link>
-                <Button 
-                  className="flex-1 bg-accent text-accent-foreground hover:bg-accent/90 group-hover:scale-105 transition-transform"
-                >
-                  Quero esse Sistema
-                </Button>
+                <Link to={`/comprar/${product.id}`} className="flex-1">
+                  <Button 
+                    className="w-full bg-accent text-accent-foreground hover:bg-accent/90 group-hover:scale-105 transition-transform"
+                  >
+                    Quero esse Sistema
+                  </Button>
+                </Link>
               </CardFooter>
             </Card>
           ))}

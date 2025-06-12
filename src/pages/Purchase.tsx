@@ -56,8 +56,8 @@ const Purchase = () => {
     <div className="min-h-screen">
       <Header />
       
-      <main className="pt-16">
-        <section className="py-20 bg-gradient-to-br from-background via-background to-muted">
+      <main className="pt-20 pb-8">
+        <section className="py-8 bg-gradient-to-br from-background via-background to-muted">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
             <Button variant="ghost" onClick={() => window.history.back()} className="mb-6">
               <ArrowLeft className="mr-2 h-4 w-4" />

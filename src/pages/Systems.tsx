@@ -103,9 +103,9 @@ const Systems = () => {
     <div className="min-h-screen">
       <Header />
       
-      <main className="pt-16">
+      <main className="pt-20 pb-8">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-background via-background to-muted">
+        <section className="py-8 bg-gradient-to-br from-background via-background to-muted">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
@@ -147,7 +147,7 @@ const Systems = () => {
         </section>
 
         {/* Systems Grid */}
-        <section className="py-20">
+        <section className="py-8">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredSystems.map((system) => (
