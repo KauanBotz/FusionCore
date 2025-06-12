@@ -15,7 +15,7 @@ const Footer = () => {
             />
             <p className="text-primary-foreground/80 text-sm leading-relaxed mb-6">
               Transformamos negócios com sistemas prontos e personalizados. 
-              Soluções completas para empresas de todos os tamanhos.
+              Soluções completas para pequenas e médias empresas.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors">
@@ -57,28 +57,18 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-4 text-accent">Empresa</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                <a href="/sobre" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   Sobre Nós
                 </a>
               </li>
               <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                <a href="#como-funciona" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   Como Funciona
                 </a>
               </li>
               <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                  Casos de Sucesso
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                  Carreiras
+                <a href="/contato" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                  Contato
                 </a>
               </li>
             </ul>

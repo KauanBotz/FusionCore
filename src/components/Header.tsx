@@ -33,7 +33,10 @@ const Header = () => {
             </Link>
           </div>
           
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link to="/" className="text-foreground hover:text-accent transition-colors">
+              Início
+            </Link>
             <Link to="/sistemas" className="text-foreground hover:text-accent transition-colors">
               Sistemas
             </Link>

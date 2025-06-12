@@ -129,8 +129,8 @@ const PricingSection = () => {
 
         <div className="text-center mt-12">
           <p className="text-muted-foreground text-sm">
-            💳 Aceitamos PIX, cartão de crédito e boleto • 🔒 Pagamento 100% seguro • 
-            📞 Suporte técnico especializado
+            💳 Aceitamos PIX, Cartão de Crédito e Boleto • 🔒 Pagamento 100% Seguro • 
+            📞 Suporte Técnico Especializado
           </p>
         </div>
       </div>
