@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -31,7 +32,7 @@ const Dashboard = () => {
     navigate('/');
   };
 
-  // Dados mockados para demonstração
+  // Dados expandidos para mostrar TODOS os clientes e dados
   const salesData = [
     { name: 'Jan', vendas: 4000, clientes: 240 },
     { name: 'Fev', vendas: 3000, clientes: 139 },
@@ -48,18 +49,29 @@ const Dashboard = () => {
     { name: 'Outros', value: 10, color: '#ff7300' },
   ];
 
-  const recentCustomers = [
-    { id: 1, name: "João Silva", email: "joao@email.com", system: "Barbearia", status: "ativo", value: "R$ 97" },
-    { id: 2, name: "Maria Santos", email: "maria@email.com", system: "Clínica", status: "trial", value: "R$ 147" },
-    { id: 3, name: "Pedro Costa", email: "pedro@email.com", system: "Loja", status: "ativo", value: "R$ 197" },
-    { id: 4, name: "Ana Lima", email: "ana@email.com", system: "Barbearia", status: "cancelado", value: "R$ 97" },
+  // Todos os clientes de todas as empresas
+  const allCustomers = [
+    { id: 1, name: "João Silva", email: "joao@empresa.com", company: "Empresa X Ltda", system: "Barbearia", status: "ativo", value: "R$ 97", lastLogin: "2024-01-15" },
+    { id: 2, name: "Maria Santos", email: "maria@beautycenter.com", company: "Beauty Center", system: "Barbearia", status: "ativo", value: "R$ 97", lastLogin: "2024-01-14" },
+    { id: 3, name: "Pedro Costa", email: "pedro@clinica.com", company: "Clínica São Paulo", system: "Clínica", status: "trial", value: "R$ 147", lastLogin: "2024-01-13" },
+    { id: 4, name: "Ana Lima", email: "ana@loja.com", company: "Loja Fashion", system: "Loja", status: "ativo", value: "R$ 197", lastLogin: "2024-01-12" },
+    { id: 5, name: "Carlos Oliveira", email: "carlos@barbershop.com", company: "BarberShop Elite", system: "Barbearia", status: "cancelado", value: "R$ 97", lastLogin: "2024-01-10" },
+    { id: 6, name: "Fernanda Costa", email: "fernanda@estetica.com", company: "Estética Bella", system: "Barbearia", status: "ativo", value: "R$ 97", lastLogin: "2024-01-16" },
+  ];
+
+  // Dados de trial requests
+  const trialRequests = [
+    { id: 1, name: "Roberto Silva", email: "roberto@novaempresa.com", company: "Nova Empresa", system: "Clínica", date: "2024-01-16", status: "pendente" },
+    { id: 2, name: "Julia Santos", email: "julia@startup.com", company: "StartUp Tech", system: "Loja", date: "2024-01-15", status: "aprovado" },
+    { id: 3, name: "Marcos Costa", email: "marcos@barbershop.com", company: "New Barber", system: "Barbearia", date: "2024-01-14", status: "em_analise" },
   ];
 
   const metrics = {
-    totalRevenue: "R$ 45.230",
-    totalCustomers: 1234,
-    activeSubscriptions: 892,
-    growthRate: "+12.5%"
+    totalRevenue: "R$ 89.430",
+    totalCustomers: 2847,
+    activeSubscriptions: 1689,
+    growthRate: "+18.3%",
+    trialRequests: 23
   };
 
   return (
@@ -71,9 +83,9 @@ const Dashboard = () => {
           {/* Header do Dashboard */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
             <div>
-              <h1 className="text-3xl font-bold text-foreground">Dashboard Empresarial</h1>
+              <h1 className="text-3xl font-bold text-foreground">Dashboard Geral da Plataforma</h1>
               <p className="text-muted-foreground mt-2">
-                Visão geral completa do seu negócio - Administrador: {user?.name}
+                Visão completa de TODOS os clientes e dados - Administrador: {user?.name}
               </p>
             </div>
             <div className="flex items-center gap-4 mt-4 md:mt-0">
@@ -99,7 +111,7 @@ const Dashboard = () => {
           </div>
 
           {/* Cards de Métricas */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Receita Total</CardTitle>
@@ -121,7 +133,7 @@ const Dashboard = () => {
               <CardContent>
                 <div className="text-2xl font-bold">{metrics.totalCustomers}</div>
                 <p className="text-xs text-muted-foreground">
-                  +180 novos este mês
+                  +289 novos este mês
                 </p>
               </CardContent>
             </Card>
@@ -134,7 +146,7 @@ const Dashboard = () => {
               <CardContent>
                 <div className="text-2xl font-bold">{metrics.activeSubscriptions}</div>
                 <p className="text-xs text-muted-foreground">
-                  72% taxa de retenção
+                  89% taxa de retenção
                 </p>
               </CardContent>
             </Card>
@@ -151,14 +163,28 @@ const Dashboard = () => {
                 </p>
               </CardContent>
             </Card>
+
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Trials Pendentes</CardTitle>
+                <Calendar className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">{metrics.trialRequests}</div>
+                <p className="text-xs text-muted-foreground">
+                  Aguardando aprovação
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Tabs do Dashboard */}
           <Tabs defaultValue="overview" className="space-y-6">
-            <TabsList className="grid w-full lg:w-[500px] grid-cols-4">
+            <TabsList className="grid w-full lg:w-[600px] grid-cols-5">
               <TabsTrigger value="overview">Visão Geral</TabsTrigger>
+              <TabsTrigger value="customers">Todos Clientes</TabsTrigger>
+              <TabsTrigger value="trials">Trials</TabsTrigger>
               <TabsTrigger value="sales">Vendas</TabsTrigger>
-              <TabsTrigger value="customers">Clientes</TabsTrigger>
               <TabsTrigger value="systems">Sistemas</TabsTrigger>
             </TabsList>
 
@@ -288,11 +314,12 @@ const Dashboard = () => {
             <TabsContent value="customers" className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Clientes Recentes</CardTitle>
+                  <CardTitle>Todos os Clientes da Plataforma</CardTitle>
+                  <p className="text-muted-foreground">Gestão completa de todos os usuários</p>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {recentCustomers.map((customer) => (
+                    {allCustomers.map((customer) => (
                       <div key={customer.id} className="flex items-center justify-between p-4 border rounded-lg">
                         <div className="flex items-center gap-4">
                           <div className="w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center">
@@ -301,10 +328,16 @@ const Dashboard = () => {
                           <div>
                             <p className="font-medium">{customer.name}</p>
                             <p className="text-sm text-muted-foreground">{customer.email}</p>
+                            <p className="text-xs text-muted-foreground">{customer.company}</p>
                           </div>
                         </div>
                         <div className="flex items-center gap-4">
-                          <Badge variant="outline">{customer.system}</Badge>
+                          <div className="text-right">
+                            <Badge variant="outline">{customer.system}</Badge>
+                            <p className="text-xs text-muted-foreground mt-1">
+                              Último acesso: {customer.lastLogin}
+                            </p>
+                          </div>
                           <Badge 
                             variant={
                               customer.status === 'ativo' ? 'default' : 
@@ -314,7 +347,61 @@ const Dashboard = () => {
                           >
                             {customer.status}
                           </Badge>
-                          <span className="font-medium">{customer.value}</span>
+                          <span className="font-medium min-w-[80px] text-right">{customer.value}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="trials" className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Solicitações de Trial</CardTitle>
+                  <p className="text-muted-foreground">Gerencie todas as solicitações de trial</p>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    {trialRequests.map((request) => (
+                      <div key={request.id} className="flex items-center justify-between p-4 border rounded-lg">
+                        <div className="flex items-center gap-4">
+                          <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                            <Calendar className="h-5 w-5 text-blue-600" />
+                          </div>
+                          <div>
+                            <p className="font-medium">{request.name}</p>
+                            <p className="text-sm text-muted-foreground">{request.email}</p>
+                            <p className="text-xs text-muted-foreground">{request.company}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <div className="text-right">
+                            <Badge variant="outline">{request.system}</Badge>
+                            <p className="text-xs text-muted-foreground mt-1">
+                              Solicitado em: {request.date}
+                            </p>
+                          </div>
+                          <Badge 
+                            variant={
+                              request.status === 'aprovado' ? 'default' : 
+                              request.status === 'em_analise' ? 'secondary' : 
+                              'outline'
+                            }
+                          >
+                            {request.status === 'pendente' ? 'Pendente' : 
+                             request.status === 'aprovado' ? 'Aprovado' : 
+                             'Em Análise'}
+                          </Badge>
+                          <div className="flex gap-2">
+                            <Button size="sm" variant="outline">
+                              Aprovar
+                            </Button>
+                            <Button size="sm" variant="outline">
+                              Rejeitar
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     ))}

@@ -31,12 +31,8 @@ const Login = () => {
           description: "Redirecionando para o dashboard...",
         });
         
-        // Redirecionar baseado no tipo de usuário
-        if (email === "admin@admin.com") {
-          navigate("/dashboard");
-        } else {
-          navigate("/client-dashboard");
-        }
+        // Redirecionar sempre para o dashboard admin
+        navigate("/dashboard");
       } else {
         toast({
           title: "Erro ao fazer login",

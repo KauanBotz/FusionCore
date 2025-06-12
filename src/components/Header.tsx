@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -36,6 +37,9 @@ const Header = () => {
             <Link to="/sistemas" className="text-foreground hover:text-accent transition-colors">
               Sistemas
             </Link>
+            <Link to="/trial" className="text-foreground hover:text-accent transition-colors">
+              Trial Gratuito
+            </Link>
             <a href="/#como-funciona" className="text-foreground hover:text-accent transition-colors">
               Como Funciona
             </a>
@@ -51,11 +55,6 @@ const Header = () => {
             {isAuthenticated && user?.type === 'admin' && (
               <Link to="/dashboard" className="text-foreground hover:text-accent transition-colors">
                 Dashboard Admin
-              </Link>
-            )}
-            {isAuthenticated && user?.type === 'client' && (
-              <Link to="/client-dashboard" className="text-foreground hover:text-accent transition-colors">
-                Meu Painel
               </Link>
             )}
           </nav>
@@ -75,9 +74,9 @@ const Header = () => {
                 <Link to="/login">
                   <Button variant="ghost">Entrar</Button>
                 </Link>
-                <Link to="/sistemas">
+                <Link to="/trial">
                   <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
-                    Ver Sistemas
+                    Trial Gratuito
                   </Button>
                 </Link>
               </>
@@ -98,6 +97,9 @@ const Header = () => {
               <Link to="/sistemas" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Sistemas
               </Link>
+              <Link to="/trial" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
+                Trial Gratuito
+              </Link>
               <a href="/#como-funciona" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Como Funciona
               </a>
@@ -115,11 +117,6 @@ const Header = () => {
                   Dashboard Admin
                 </Link>
               )}
-              {isAuthenticated && user?.type === 'client' && (
-                <Link to="/client-dashboard" className="text-foreground hover:text-accent transition-colors" onClick={() => setIsMenuOpen(false)}>
-                  Meu Painel
-                </Link>
-              )}
               <div className="flex flex-col space-y-2 pt-4">
                 {isAuthenticated ? (
                   <>
@@ -135,9 +132,9 @@ const Header = () => {
                     <Link to="/login" onClick={() => setIsMenuOpen(false)}>
                       <Button variant="ghost" className="w-full">Entrar</Button>
                     </Link>
-                    <Link to="/sistemas" onClick={() => setIsMenuOpen(false)}>
+                    <Link to="/trial" onClick={() => setIsMenuOpen(false)}>
                       <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                        Ver Sistemas
+                        Trial Gratuito
                       </Button>
                     </Link>
                   </>

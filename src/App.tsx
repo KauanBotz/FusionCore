@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -17,8 +18,8 @@ import Purchase from "./pages/Purchase";
 import Admin from "./pages/Admin";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import Trial from "./pages/Trial";
 import { AuthProvider } from "./contexts/AuthContext";
-import ClientDashboard from "./pages/ClientDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
@@ -50,6 +51,7 @@ const App = () => (
             <Route path="/contato" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/registro" element={<Register />} />
+            <Route path="/trial" element={<Trial />} />
             <Route path="/comprar/:id" element={<Purchase />} />
             <Route path="/admin" element={<Admin />} />
             <Route 
@@ -57,14 +59,6 @@ const App = () => (
               element={
                 <ProtectedRoute requireAdmin={true}>
                   <Dashboard />
-                </ProtectedRoute>
-              } 
-            />
-            <Route 
-              path="/client-dashboard" 
-              element={
-                <ProtectedRoute>
-                  <ClientDashboard />
                 </ProtectedRoute>
               } 
             />
