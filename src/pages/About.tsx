@@ -131,38 +131,6 @@ const About = () => {
           </div>
         </section>
 
-
-
-        {/* Stats Section */}
-        <section className="py-20 bg-primary text-primary-foreground">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-                Nossos Números
-              </h2>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-4xl font-bold text-accent mb-2">500+</div>
-                <div className="text-primary-foreground/80">Empresas Atendidas</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-accent mb-2">50+</div>
-                <div className="text-primary-foreground/80">Sistemas Disponíveis</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-accent mb-2">99.9%</div>
-                <div className="text-primary-foreground/80">Uptime</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-accent mb-2">5</div>
-                <div className="text-primary-foreground/80">Anos de Experiência</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* CTA Section */}
         <section className="py-20 bg-accent text-accent-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

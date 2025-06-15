@@ -15,17 +15,17 @@ const SystemDetails = () => {
   // Dados dos sistemas (em uma aplicação real, viria de uma API)
   const systems = {
     "1": {
-      name: "Sistema para Barbearia",
-      price: "R$ 97/mês",
-      image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&h=600&fit=crop",
-      description: "Sistema completo de gestão para barbearias e salões de beleza. Controle total do seu negócio em uma única plataforma web.",
+      name: "Sistema para Conservadora",
+      price: "R$ 197/mês",
+      image: "/lovable-uploads/imagem1.jpg",
+      description: "Sistema completo de gestão para conservadoras. Controle total do seu negócio em uma única plataforma web.",
       features: [
-        "Agendamento online com confirmação automática",
-        "Gestão completa de clientes e histórico",
-        "Controle de estoque de produtos",
-        "Relatórios financeiros detalhados",
-        "Sistema de fidelidade para clientes",
-        "Integração com WhatsApp",
+        "Gestão de escalas",
+        "Gestão de faltas",
+        "Controle de funcionários",
+        "Controle de condomínios",
+        "Controle de salários",
+        "Suporte 24/7",
         "Aplicação web responsiva",
         "Painel administrativo completo"
       ],
@@ -37,15 +37,15 @@ const SystemDetails = () => {
       ],
       testimonials: [
         {
-          name: "João Silva",
-          business: "Barbearia Moderna",
+          name: "Maria Silva",
+          business: "Conservadora Moderna",
           text: "Revolucionou meu negócio! Agora tenho controle total e meus clientes adoram o agendamento online."
         }
       ]
     },
     "2": {
       name: "Sistema Financeiro",
-      price: "R$ 97/mês",
+      price: "R$ 197/mês",
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop",
       description: "Sistema completo de controle financeiro empresarial. Gerencie todas as finanças da sua empresa em uma única plataforma web.",
       features: [
@@ -66,7 +66,7 @@ const SystemDetails = () => {
       ],
       testimonials: [
         {
-          name: "Maria Santos",
+          name: "Ana Santos",
           business: "Empresa ABC",
           text: "Transformou nossa gestão financeira! Agora temos controle total e relatórios automáticos."
         }
@@ -119,11 +119,11 @@ const SystemDetails = () => {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" onClick={() => navigate(`/comprar/${id}`)}>
-                    Quero Este Sistema
+                  <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" onClick={() => navigate(`/demo/${id}`)}>
+                    Veja mais detalhes
                   </Button>
                   <Button variant="outline" size="lg" onClick={() => navigate(`/trial`)}>
-                    Agendar Demo
+                    Solicitar Demonstração
                   </Button>
                 </div>
               </div>
@@ -230,7 +230,7 @@ const SystemDetails = () => {
               <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90">
                 Começar Agora
               </Button>
-              <Button size="lg" variant="outline" className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground hover:text-accent">
+              <Button size="lg" variant="outline" className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground hover:text-accent" onClick={() => window.location.href="https://wa.me/5531982886064 target=_blank" }>
                 Falar com Consultor
               </Button>
             </div>

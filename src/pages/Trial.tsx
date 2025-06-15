@@ -25,7 +25,7 @@ const Trial = () => {
   const { toast } = useToast();
 
   const systems = [
-    { id: "barbearia", name: "Sistema para Barbearia" },
+    { id: "conservadora", name: "Sistema para Conservadora" },
     { id: "financeiro", name: "Sistema Financeiro" },
   ];
 
@@ -97,7 +97,7 @@ const Trial = () => {
                 Solicitar Trial Gratuito
               </h1>
               <p className="text-xl text-muted-foreground">
-                Teste nossos sistemas por 7 dias gratuitamente
+                Teste nossos sistemas por 14 dias gratuitamente
               </p>
             </div>
 

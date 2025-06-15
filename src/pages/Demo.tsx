@@ -16,7 +16,7 @@ const Demo = () => {
 
   const demoData = {
     "1": {
-      name: "Sistema para Barbearia",
+      name: "Sistema para Conservadora",
       description: "Veja como funciona o sistema completo de gestão para barbearias",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       features: [
@@ -165,14 +165,11 @@ const Demo = () => {
                         Implemente este sistema no seu negócio hoje mesmo!
                       </p>
                       <div className="flex flex-col gap-3">
-                        <Button className="bg-accent text-accent-foreground hover:bg-accent/90" onClick={() => navigate(`/comprar/${id}`)}>
-                          Quero este Sistema
-                        </Button>
-                        <Button variant="outline">
+                        <Button variant="outline" onClick={() => window.location.href="https://wa.me/5531982886064 target=_blank" }>
                           Falar com Consultor
                         </Button>
-                        <Button variant="ghost">
-                          Agendar Reunião
+                        <Button variant="ghost" className="bg-accent text-accent-foreground hover:bg-accent/90" onClick={() => navigate(`/trial`) }>
+                          Solicite uma demonstração
                         </Button>
                       </div>
                     </CardContent>

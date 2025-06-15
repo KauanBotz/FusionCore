@@ -8,7 +8,7 @@ const PricingSection = () => {
   const plans = [
     {
       name: "Mensal",
-      price: "R$ 97",
+      price: "R$ 197",
       period: "/mês",
       description: "Ideal para testar nossos sistemas",
       icon: <Zap className="h-6 w-6" />,
@@ -25,7 +25,7 @@ const PricingSection = () => {
     },
     {
       name: "Vitalício",
-      price: "R$ 1.997",
+      price: "R$ 2.689",
       period: "pagamento único",
       description: "Melhor custo-benefício a longo prazo",
       icon: <Crown className="h-6 w-6" />,
@@ -35,7 +35,6 @@ const PricingSection = () => {
         "Suporte prioritário",
         "Atualizações vitalícias",
         "Múltiplos domínios",
-        "Código fonte incluso",
         "Consultoria de 2h incluída",
         "Treinamento avançado"
       ],

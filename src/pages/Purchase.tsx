@@ -1,4 +1,4 @@
-
+// src/pages/Purchase.tsx
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -9,25 +9,31 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, CreditCard, Check, Shield, Clock } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "@/components/ui/sonner";
 
 const Purchase = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { user, isAuthenticated } = useAuth();
   const [selectedPlan, setSelectedPlan] = useState("monthly");
-  const [paymentMethod, setPaymentMethod] = useState("credit");
+  const [paymentMethod, setPaymentMethod] = useState("credit"); // Manter para UI
+  const [isLoading, setIsLoading] = useState(false);
 
   const systemData = {
     "1": {
-      name: "Sistema para Barbearia",
-      description: "Sistema completo de gestão para barbearias",
-      image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=400&h=300&fit=crop",
-      monthlyPrice: 97,
+      name: "Sistema para Conservadora",
+      description: "Sistema completo de gestão para conservadoras",
+      image: "/public/lovable-uploads/",
+      monthlyPrice: 197,
       yearlyPrice: 970,
       features: [
-        "Agendamento online",
-        "Gestão de clientes",
-        "Controle de estoque",
-        "Relatórios financeiros",
-        "Aplicação web",
+        "Gestão de escalas",
+        "Gestão de faltas",
+        "Controle de funcionários",
+        "Controle de condomínios",
+        "Controle de salários",
         "Suporte 24/7"
       ]
     },
@@ -67,10 +73,49 @@ const Purchase = () => {
   const currentPrice = selectedPlan === "monthly" ? system.monthlyPrice : system.yearlyPrice;
   const yearlyDiscount = Math.round(((system.monthlyPrice * 12) - system.yearlyPrice) / (system.monthlyPrice * 12) * 100);
 
+  const handlePurchase = async () => {
+    if (!isAuthenticated || !user) {
+      toast.error("Você precisa estar logado para realizar uma compra.");
+      navigate("/login");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      // Ajuste a URL para o seu backend
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/create-payment-preference`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: user.id,
+          productId: id,
+          amount: currentPrice,
+          planType: selectedPlan,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        window.location.href = data.init_point; // Redireciona para o Checkout Pro
+      } else {
+        toast.error(data.message || "Erro ao iniciar o pagamento.");
+      }
+    } catch (error) {
+      console.error("Erro na requisição de pagamento:", error);
+      toast.error("Erro de conexão ao iniciar o pagamento.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       <main className="pt-20 pb-8">
         <section className="py-8 bg-gradient-to-br from-background via-background to-muted">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
@@ -88,8 +133,8 @@ const Purchase = () => {
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div className="flex items-center gap-4">
-                      <img 
-                        src={system.image} 
+                      <img
+                        src={system.image}
                         alt={system.name}
                         className="w-20 h-20 object-cover rounded-lg"
                       />
@@ -104,7 +149,7 @@ const Purchase = () => {
                     <div className="space-y-3">
                       <Label className="text-base font-semibold">Escolha seu plano:</Label>
                       <div className="grid grid-cols-1 gap-3">
-                        <div 
+                        <div
                           className={`p-4 border rounded-lg cursor-pointer transition-all ${
                             selectedPlan === "monthly" ? "border-accent bg-accent/5" : "border-border"
                           }`}
@@ -120,8 +165,8 @@ const Purchase = () => {
                             </div>
                           </div>
                         </div>
-                        
-                        <div 
+
+                        <div
                           className={`p-4 border rounded-lg cursor-pointer transition-all relative ${
                             selectedPlan === "yearly" ? "border-accent bg-accent/5" : "border-border"
                           }`}
@@ -180,11 +225,10 @@ const Purchase = () => {
                     <CardTitle className="text-2xl">Informações de Pagamento</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    {/* Payment Method */}
                     <div className="space-y-3">
                       <Label className="text-base font-semibold">Método de pagamento:</Label>
                       <div className="grid grid-cols-1 gap-3">
-                        <div 
+                        <div
                           className={`p-4 border rounded-lg cursor-pointer transition-all ${
                             paymentMethod === "credit" ? "border-accent bg-accent/5" : "border-border"
                           }`}
@@ -200,8 +244,8 @@ const Purchase = () => {
                             </div>
                           </div>
                         </div>
-                        
-                        <div 
+
+                        <div
                           className={`p-4 border rounded-lg cursor-pointer transition-all ${
                             paymentMethod === "pix" ? "border-accent bg-accent/5" : "border-border"
                           }`}
@@ -222,7 +266,7 @@ const Purchase = () => {
                       </div>
                     </div>
 
-                    {/* Payment Form */}
+                    {/* Formulário de Cartão (mantido apenas para UI, a lógica de pagamento real será via MP Checkout Pro) */}
                     {paymentMethod === "credit" && (
                       <div className="space-y-4">
                         <div className="grid grid-cols-2 gap-4">
@@ -267,8 +311,12 @@ const Purchase = () => {
                     </div>
 
                     {/* Purchase Button */}
-                    <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 text-lg py-6">
-                      Finalizar Compra - R$ {paymentMethod === "pix" ? Math.round(currentPrice * 0.95) : currentPrice}
+                    <Button
+                      className="w-full bg-accent text-accent-foreground hover:bg-accent/90 text-lg py-6"
+                      onClick={handlePurchase}
+                      disabled={isLoading}
+                    >
+                      {isLoading ? "Processando..." : `Finalizar Compra - R$ ${paymentMethod === "pix" ? Math.round(currentPrice * 0.95) : currentPrice}`}
                     </Button>
 
                     <p className="text-xs text-muted-foreground text-center">
@@ -283,7 +331,7 @@ const Purchase = () => {
           </div>
         </section>
       </main>
-      
+
       <Footer />
     </div>
   );

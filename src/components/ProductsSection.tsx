@@ -9,13 +9,13 @@ const ProductsSection = () => {
   const products = [
     {
       id: 1,
-      name: "Sistema para Barbearia",
-      description: "Completo sistema de agendamento, controle de clientes, vendas e estoque para barbearias e salões.",
-      image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=400&h=300&fit=crop",
+      name: "Sistema para Conservadora",
+      description: "Sistema completo de gestão de escalas, controle de faltas, funcionários, condomínios e salários para empresas de conservação e limpeza.",
+      image: "lovable-uploads/imagem1.jpg",
       icon: <Scissors className="h-8 w-8 text-accent" />,
-      features: ["Agendamento Online", "Controle de Estoque", "Relatórios", "App Web"],
+      features: ["Gestão de escalas", "Controle de faltas", "Controle de funcionários", "Controle de condomínios", "Controle de salários"],
       badge: "Mais Popular",
-      price: "R$ 97/mês"
+      price: "R$ 197/mês"
     },
     {
       id: 2,
@@ -23,9 +23,9 @@ const ProductsSection = () => {
       description: "Controle financeiro completo para empresas, fluxo de caixa, relatórios e integração bancária.",
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
       icon: <CreditCard className="h-8 w-8 text-accent" />,
-      features: ["Fluxo de Caixa", "Relatórios", "Integração Bancária", "DRE"],
+      features: ["Fluxo de Caixa", "Relatórios", "Integração Bancária", "Controle de contas a pagar e receber", "Dashboard executivo", "Aplicação web segura", "Suporte 24/7"],
       badge: "Novo",
-      price: "R$ 97/mês"
+      price: "R$ 197/mês"
     }
   ];
 
@@ -95,11 +95,12 @@ const ProductsSection = () => {
                     Ver Detalhes
                   </Button>
                 </Link>
-                <Link to={`/comprar/${product.id}`} className="flex-1">
+                <Link to={`/trial`} className="flex-1">
                   <Button 
-                    className="w-full bg-accent text-accent-foreground hover:bg-accent/90 group-hover:scale-105 transition-transform"
+                    variant="outline"
+                    className="w-full group-hover:scale-105 transition-transform"
                   >
-                    Quero esse Sistema
+                    Solicitar Demonstração
                   </Button>
                 </Link>
               </CardFooter>

@@ -1,4 +1,4 @@
-
+// src/App.tsx
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -21,6 +21,9 @@ import NotFound from "./pages/NotFound";
 import Trial from "./pages/Trial";
 import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+
+// Importe os novos componentes de status de pagamento
+import PurchaseStatusPage from "./pages/PurchaseSuccess";
 
 const queryClient = new QueryClient();
 
@@ -54,15 +57,19 @@ const App = () => (
             <Route path="/trial" element={<Trial />} />
             <Route path="/comprar/:id" element={<Purchase />} />
             <Route path="/admin" element={<Admin />} />
-            <Route 
-              path="/dashboard" 
+            <Route
+              path="/dashboard"
               element={
                 <ProtectedRoute requireAdmin={true}>
                   <Dashboard />
                 </ProtectedRoute>
-              } 
+              }
             />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            {/* Novas rotas de status de pagamento */}
+            <Route path="/purchase-success" element={<PurchaseStatusPage status="success" />} />
+            <Route path="/purchase-failure" element={<PurchaseStatusPage status="failure" />} />
+            <Route path="/purchase-pending" element={<PurchaseStatusPage status="pending" />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

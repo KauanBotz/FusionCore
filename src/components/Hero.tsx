@@ -26,8 +26,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl sm:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-            Sistemas completos e personalizados para barbearias e financeiros. 
-            Implementação em 24h com suporte total.
+            Sistemas completos com inteligência artificial para o seu negócio. Venha alavancar com tecnologia.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
@@ -54,23 +53,25 @@ const Hero = () => {
           
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-accent mb-2">500+</div>
-              <div className="text-muted-foreground">Empresas Atendidas</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-accent mb-2">24h</div>
-              <div className="text-muted-foreground">Implementação</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-accent mb-2">99.9%</div>
-              <div className="text-muted-foreground">Uptime</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-accent mb-2">24/7</div>
-              <div className="text-muted-foreground">Suporte</div>
-            </div>
+          <div className="text-center">
+            <div className="text-xl sm:text-2xl font-bold text-accent mb-2">Escalável</div>
+            <div className="text-muted-foreground">Infraestrutura preparada</div>
           </div>
+          <div className="text-center">
+            <div className="text-xl sm:text-2xl font-bold text-accent mb-2">Ágil</div>
+            <div className="text-muted-foreground">Implementação <br /> em 24h</div>
+          </div>
+          <div className="text-center">
+            <div className="text-xl sm:text-2xl font-bold text-accent mb-2">Estável</div>
+            <div className="text-muted-foreground">Alta <br /> disponibilidade</div>
+          </div>
+          <div className="text-center">
+            <div className="text-xl sm:text-2xl font-bold text-accent mb-2">Atencioso</div>
+            <div className="text-muted-foreground">Suporte <br /> humanizado</div>
+          </div>
+        </div>
+
+
         </div>
       </div>
       

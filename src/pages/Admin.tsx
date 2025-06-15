@@ -19,9 +19,9 @@ const Admin = () => {
   const [systems, setSystems] = useState([
     {
       id: 1,
-      name: "Sistema para Barbearia",
+      name: "Sistema para Conservadora",
       description: "Completo sistema de agendamento, controle de clientes, vendas e estoque para barbearias e salões.",
-      price: 97,
+      price: 197,
       category: "beleza",
       status: "ativo"
     },
@@ -194,7 +194,7 @@ const Admin = () => {
                     id="name"
                     value={editingSystem.name}
                     onChange={(e) => setEditingSystem({...editingSystem, name: e.target.value})}
-                    placeholder="Ex: Sistema para Barbearia"
+                    placeholder="Ex: Sistema para Conservadora"
                   />
                 </div>
 
@@ -216,7 +216,7 @@ const Admin = () => {
                       type="number"
                       value={editingSystem.price}
                       onChange={(e) => setEditingSystem({...editingSystem, price: Number(e.target.value)})}
-                      placeholder="97"
+                      placeholder="197"
                     />
                   </div>
 

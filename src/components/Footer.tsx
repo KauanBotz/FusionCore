@@ -35,17 +35,17 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-4 text-accent">Sistemas</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                  Sistema para Barbearia
+                <a href="/sistema/1" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                  Sistema para Conservadora
                 </a>
               </li>
               <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                <a href="/sistema/2" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   Sistema Financeiro
                 </a>
               </li>
               <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                <a href="/sistemas" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   Ver Todos os Sistemas
                 </a>
               </li>

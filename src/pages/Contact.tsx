@@ -7,8 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
+  const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Aqui você implementaria o envio do formulário
@@ -107,7 +109,11 @@ const Contact = () => {
                       <p className="text-sm text-muted-foreground mb-4">
                         Quer conhecer nossos sistemas? Fale com nossa equipe de vendas.
                       </p>
-                      <Button size="sm" className="w-full">
+                      <Button
+                        size="sm"
+                        className="w-full"
+                        onClick={() => window.open("https://wa.me/5531982886064", "_blank")}
+                      >
                         Falar com Vendas
                       </Button>
                     </CardContent>
@@ -121,7 +127,12 @@ const Contact = () => {
                       <p className="text-sm text-muted-foreground mb-4">
                         Precisa de ajuda técnica? Nossa equipe está pronta para ajudar.
                       </p>
-                      <Button size="sm" variant="outline" className="w-full">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="w-full"
+                        onClick={() => window.open("https://wa.me/5531982886064", "_blank")}
+                      >
                         Suporte Técnico
                       </Button>
                     </CardContent>

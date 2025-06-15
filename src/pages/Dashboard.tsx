@@ -51,12 +51,12 @@ const Dashboard = () => {
 
   // Todos os clientes de todas as empresas
   const allCustomers = [
-    { id: 1, name: "João Silva", email: "joao@empresa.com", company: "Empresa X Ltda", system: "Barbearia", status: "ativo", value: "R$ 97", lastLogin: "2024-01-15" },
-    { id: 2, name: "Maria Santos", email: "maria@beautycenter.com", company: "Beauty Center", system: "Barbearia", status: "ativo", value: "R$ 97", lastLogin: "2024-01-14" },
+    { id: 1, name: "João Silva", email: "joao@empresa.com", company: "Empresa X Ltda", system: "Barbearia", status: "ativo", value: "R$ 197", lastLogin: "2024-01-15" },
+    { id: 2, name: "Maria Santos", email: "maria@beautycenter.com", company: "Beauty Center", system: "Barbearia", status: "ativo", value: "R$ 197", lastLogin: "2024-01-14" },
     { id: 3, name: "Pedro Costa", email: "pedro@clinica.com", company: "Clínica São Paulo", system: "Clínica", status: "trial", value: "R$ 147", lastLogin: "2024-01-13" },
     { id: 4, name: "Ana Lima", email: "ana@loja.com", company: "Loja Fashion", system: "Loja", status: "ativo", value: "R$ 197", lastLogin: "2024-01-12" },
-    { id: 5, name: "Carlos Oliveira", email: "carlos@barbershop.com", company: "BarberShop Elite", system: "Barbearia", status: "cancelado", value: "R$ 97", lastLogin: "2024-01-10" },
-    { id: 6, name: "Fernanda Costa", email: "fernanda@estetica.com", company: "Estética Bella", system: "Barbearia", status: "ativo", value: "R$ 97", lastLogin: "2024-01-16" },
+    { id: 5, name: "Carlos Oliveira", email: "carlos@barbershop.com", company: "BarberShop Elite", system: "Barbearia", status: "cancelado", value: "R$ 197", lastLogin: "2024-01-10" },
+    { id: 6, name: "Fernanda Costa", email: "fernanda@estetica.com", company: "Estética Bella", system: "Barbearia", status: "ativo", value: "R$ 197", lastLogin: "2024-01-16" },
   ];
 
   // Dados de trial requests
@@ -269,7 +269,7 @@ const Dashboard = () => {
                         <p className="text-sm font-medium">Nova assinatura - Sistema Barbearia</p>
                         <p className="text-xs text-muted-foreground">João Silva - há 2 minutos</p>
                       </div>
-                      <Badge variant="secondary">R$ 97</Badge>
+                      <Badge variant="secondary">R$ 197</Badge>
                     </div>
                     <div className="flex items-center gap-4 p-3 bg-muted/50 rounded-lg">
                       <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
